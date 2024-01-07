@@ -1,4 +1,4 @@
-import { View, Text, TextInput, TouchableOpacity } from 'react-native'
+import { View, Text, TextInput, TouchableOpacity, FlatList } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-content'
 import { StatusBar } from 'expo-status-bar'
@@ -6,6 +6,7 @@ import { StatusBar } from 'expo-status-bar'
 import { themeColors } from '../theme'
 import { MapPinIcon } from 'react-native-heroicons/solid';
 import { BellIcon, MagnifyingGlassIcon }  from 'react-native-heroicons/outline';
+import { categories } from '../constants'
 
 export default function HomeScreen() {
     return(
@@ -40,6 +41,12 @@ export default function HomeScreen() {
                 </View>
             </View>
 
+            <View className="px-5 mt-6">
+                <FlatList
+                    horizontal
+                    showsHorizontalScrollIndicator={false}
+                    data={categories}
+            </View>
         </SafeAreaView>
         </View>
     )
