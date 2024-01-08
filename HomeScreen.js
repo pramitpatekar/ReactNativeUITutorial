@@ -1,5 +1,5 @@
 import { View, Text, TextInput, TouchableOpacity, FlatList } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-content'
 import { StatusBar } from 'expo-status-bar'
 
@@ -7,6 +7,8 @@ import { themeColors } from '../theme'
 import { MapPinIcon } from 'react-native-heroicons/solid';
 import { BellIcon, MagnifyingGlassIcon }  from 'react-native-heroicons/outline';
 import { categories } from '../constants'
+
+const [activeCategory, setActiveCategory] = useState(1);
 
 export default function HomeScreen() {
     return(
@@ -46,6 +48,24 @@ export default function HomeScreen() {
                     horizontal
                     showsHorizontalScrollIndicator={false}
                     data={categories}
+                    keyExtractor={item => item.id}
+                    className="overflow-visible"
+                    renderItem={({item})=>{
+                        let isActive = item.id==activeCategory;
+                        let activeTextClass = isActive? 'text-white': 'text-gray-700';
+                        return (
+                            <TouchableOpacity
+                                onPress={()=> setActiveCategory(item.id)}
+                                style={{backgroundColor: isActive? themeColors.bgLight: 'rgba(0,0,0,0.07)'}}
+                                className="p-4 px-5 rounded-full mr-2 shadow"
+                            >
+                                <Text className={"font-semibold" + activeTextClass}>
+                                    {item.title}
+                                </Text>
+                            </TouchableOpacity>
+                        )
+                    }}
+                />
             </View>
         </SafeAreaView>
         </View>
