@@ -7,6 +7,9 @@ import { themeColors } from '../theme'
 import { MapPinIcon } from 'react-native-heroicons/solid';
 import { BellIcon, MagnifyingGlassIcon }  from 'react-native-heroicons/outline';
 import { categories } from '../constants'
+import Carousel fronimport CoffeeCard from './components/coffeeCard'
+ 'react-native-snap-carousel';
+
 
 const [activeCategory, setActiveCategory] = useState(1);
 
@@ -67,6 +70,22 @@ export default function HomeScreen() {
                     }}
                 />
             </View>
+
+            //coffee cards
+            <View className="mt-16 py-2">
+                <Carousel 
+                    containerCustomStyle={{overflow: 'visible'}}
+                    data={coffeeItems}
+                    renderItem={({item})=> <CoffeeCard item={item} />}
+                    firstItem={1}
+                    inactiveSlideOpacity={0.75}   //opacity of inactive slides
+                    inactiveSliderScale={0.77}    //size of inactive slides
+                    sliderWidth={400}             //actual slide width
+                    itemWidth={260}               //card width
+                    slideStyle={{display: 'flex', alignItems: 'center'}}
+                />
+            </View>
+
         </SafeAreaView>
         </View>
     )
