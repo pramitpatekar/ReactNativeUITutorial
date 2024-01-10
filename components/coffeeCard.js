@@ -42,10 +42,23 @@ export default function CoffeeCard() {
                 </View>
 
                 <View style={{
-
-                }}>
+                    backgroundColor: themeColors.bgDark,
+                    shadowColor: themeColors.bgDark,
+                    shadowRadius: 25,
+                    shadowOffset: {width: 0, height: 40},
+                    shadowOpacity: 0.8
+                }}
+                    className="flex-row justify-between items-center"
+                >
                     <Text className="text-white font-bold text-lg">$ {item.price}</Text>
-                    <TouchableOpacity>
+                    <TouchableOpacity 
+                    style={{
+                        shadowColor: 'black',
+                        shadowRadius: 40,
+                        shadowOffset: {width: -20, height: -10},
+                        shadowOpacity: 1
+                    }}
+                    className="p-4 bg-white rounded-full">
                         <PlusIcon size="25" strokeWidth={2} color={themeColors.bgDark} />
                     </TouchableOpacity>
                 </View>    

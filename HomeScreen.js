@@ -76,6 +76,7 @@ export default function HomeScreen() {
                 <Carousel 
                     containerCustomStyle={{overflow: 'visible'}}
                     data={coffeeItems}
+                    loop={true}
                     renderItem={({item})=> <CoffeeCard item={item} />}
                     firstItem={1}
                     inactiveSlideOpacity={0.75}   //opacity of inactive slides
