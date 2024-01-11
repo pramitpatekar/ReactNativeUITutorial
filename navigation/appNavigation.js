@@ -2,6 +2,7 @@ import React from "react";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from "../HomeScreen";
+import ProductScreen from "../ProductScreen";
 import { LogBox, Text, View } from 'react-native';
 
 import { createBottomNavigator } from '@react-navigation/bottom-tabs';
@@ -24,6 +25,7 @@ export default function AppNavigation() {
                 contentStyle: {backgroundColor: 'white'}
             }}>
                 <Stack.Screen name="Home" options={{headerShown: false}} component={HomeTabs} />
+                <Stack.Screen name="Product" options={{headerShown: false}} component={ProductScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     )
@@ -41,6 +43,7 @@ function HomeTabs() {
                     marginBottom:20,
                     borderRadius: 50,
                     backgroundColor: themeColors.bgLight,
+                    marginHorizontal: 20
                 },
                 tabBarItemStyle: {
                     marginTop: 30
