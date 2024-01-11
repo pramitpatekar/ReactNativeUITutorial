@@ -32,10 +32,47 @@ export default function AppNavigation() {
 
 function HomeTabs() {
     return(
-        <Tab.Navigator>
+        <Tab.Navigator
+            screenOptions={({route})=>({
+                headerShown: false,
+                tabBarShowLabel: false,
+                tabBarIcon: ({focused, color, size})=> menuIcons(route, focused),
+                tabBarStyle: {
+                    marginBottom:20,
+                    borderRadius: 50,
+                    backgroundColor: themeColors.bgLight,
+                },
+                tabBarItemStyle: {
+                    marginTop: 30
+                }
+            })}
+        >
             <Tab.Screen name="home" component={HomeScreen} />
             <Tab.Screen name="favourite" component={HomeScreen} />
             <Tab.Screen name="cart" component={HomeScreen} />
         </Tab.Navigator>
     )
 }
+
+
+const menuIcons = { route, focused }=>{
+    let icon;
+    if(route.name=='home') {
+        icon = focused? <HomeSolid size="30" color={themeColors.bgLight} /> : <HomeOutline size="30" strokeWidth={2} color="white" />
+    }
+    else if(route.name == 'favourite'){
+        icon = focused? <HeartSolid size="30" color={themeColors.bgLight} /> : <HeartOutline size="30" strokeWidth={2} color="white" />
+    }
+
+    else if(route.name == 'cart'){
+        icon = focused? <BagSolid size="30" color={themeColors.bgLight} /> : <BagOutline size="30" strokeWidth={2} color="white" />
+    }
+
+    let buttonClass = focused? 'bg-white': '';
+    return(
+        <View className={"flex  items-center rounded-full p-3 shadow " + buttonClass}>
+            {icon}
+        </View>
+    )
+}
+
