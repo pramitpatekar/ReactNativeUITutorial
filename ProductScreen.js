@@ -6,6 +6,8 @@ export default function ProductScreen(props) {
 
     const item = props.route.params;
     const navigation = useNavigation();
+    const [size, setSize] = useState('small')
+
 
     return(
         <View className='flex-1'>
@@ -56,12 +58,34 @@ export default function ProductScreen(props) {
                     <Text style={{color: themeColors.text}} className="text-lg font-bold">
                         Coffee size
                     </Text>
-                    <TouchableOpacity
-                        className="px-8 px-3 rounded-full"
-                        style={{backgroundColor: themeColors.bgLight}}
-                    >
-                        <Text className="text-gray-700">Small</Text>
-                    </TouchableOpacity>
+                    
+                    <View className="flex-row justify-between">
+                        <TouchableOpacity
+                            onPress={()=> setSize('small')}
+                            className="px-3 px-8 rounded-full"
+                            style={{backgroundColor: size=='small' ? themeColors.bgLight : 'rgba(0,0,0,0.07)'}}
+                        >
+                            <Text className={size=='small' ? 'text-white' : 'text-gray-700'}>Small</Text>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity
+                            onPress={()=> setSize('medium')}
+                            className="px-3 px-8 rounded-full"
+                            style={{backgroundColor: size=='medium' ? themeColors.bgLight : 'rgba(0,0,0,0.07)'}}
+                        >
+                            <Text className={size=='medium' ? 'text-white' : 'text-gray-700'}>Medium</Text>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity
+                            onPress={()=> setSize('large')}
+                            className="px-3 px-8 rounded-full"
+                            style={{backgroundColor: size=='large' ? themeColors.bgLight : 'rgba(0,0,0,0.07)'}}
+                        >
+                            <Text className={size=='large' ? 'text-white' : 'text-gray-700'}>Large</Text>
+                        </TouchableOpacity>
+
+                    </View>
+                    
                 </View>
                 
             </SafeAreaView>
