@@ -1,6 +1,6 @@
 import { View, Text, StatusBar, SafeAreaView, Touchable, TouchableOpacity } from 'react-native'
 import React from "react";
-import { ArrowLeftCircleIcon, HeartIcon, MinusIcon, StarIcon } from 'react-native-heroicons/solid';
+import { ArrowLeftCircleIcon, HeartIcon, MinusIcon, ShoppingBagIcon, StarIcon } from 'react-native-heroicons/solid';
 
 export default function ProductScreen(props) {
 
@@ -115,6 +115,16 @@ export default function ProductScreen(props) {
                     </View>
                 </View>
                 
+                <View className="flex-row justify-between items-center mx-4">
+                    <TouchableOpacity className="p-4 rounded-full border border-gray-400">
+                        <ShoppingBagIcon size="30" color="gray" />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{backgroundColor: themeColors.bgLight}} className="p-5 rounded-full flex-1 ml-3">
+                        <Text className="text-center text-base font-semibold text-white">
+                            Buy Now
+                        </Text>
+                    </TouchableOpacity>
+                </View>
             </SafeAreaView>
         </View>
     )
