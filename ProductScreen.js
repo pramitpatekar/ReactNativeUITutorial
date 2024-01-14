@@ -1,6 +1,6 @@
 import { View, Text, StatusBar, SafeAreaView, Touchable, TouchableOpacity } from 'react-native'
 import React from "react";
-import { ArrowLeftCircleIcon, HeartIcon, StarIcon } from 'react-native-heroicons/solid';
+import { ArrowLeftCircleIcon, HeartIcon, MinusIcon, StarIcon } from 'react-native-heroicons/solid';
 
 export default function ProductScreen(props) {
 
@@ -86,6 +86,33 @@ export default function ProductScreen(props) {
 
                     </View>
                     
+                </View>
+                <View className="mx-4 space-y-2 h-28">
+                    <Text style={{color: themeColors.text}} className="text-lg font-bold">
+                        About
+                    </Text>
+                    <Text className="text-gray-600">
+                        {item.desc}
+                    </Text>
+                </View>
+                <View className="flex-row justify-between items-center mx-4 mb-2">
+                    <View className="flex-row items-center space-x-1">
+                        <Text className="text-base text-gray-700 font-semibold opacity-60">
+                            Volume
+                        </Text>
+                        <Text className="text-base text-black font-semibold">
+                            {item.volume}
+                        </Text>
+                    </View>
+                    <View className="flex-row items-center space-x-4 border-gray-500 border rounded-full p-1 px-4">
+                        <TouchableOpacity>
+                            <MinusIcon size="20" strokeWidth={3} color={themeColors.text} />
+                        </TouchableOpacity>
+                        <Text style={{color: themeColors.text}} className="font-extrabold text-lg">2</Text>
+                        <TouchableOpacity>
+                            <PlusIcon size="20" strokeWidth={3} color={themeColors.text} />
+                        </TouchableOpacity>
+                    </View>
                 </View>
                 
             </SafeAreaView>
